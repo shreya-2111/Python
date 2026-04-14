@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+    padding:20px;
+}
+h2{text-align:center;}
+.add-btn,.order-btn,.edit-btn,.delete-btn{
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+}
+.add-btn{background:green;}
+.order-btn{background:blue;}
+.edit-btn{background:orange;}
+.delete-btn{background:red;}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+th{
+    background:#007bff;
+    color:white;
+    padding:10px;
+}
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Food Ordering System</h2>
+
+<a href="/food/add/" class="add-btn">Add Food</a>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Action</th>
+</tr>
+
+{% for item in items %}
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.price }}</td>
+    <td>{{ item.category }}</td>
+    <td>
+        <a href="/food/order/{{ item.id }}/" class="order-btn">Order</a>
+        <a href="/food/update/{{ item.id }}/" class="edit-btn">Edit</a>
+        <a href="/food/delete/{{ item.id }}/" class="delete-btn">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
