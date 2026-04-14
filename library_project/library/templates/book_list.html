@@ -1,0 +1,10 @@
+<h2>Book List</h2>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search by title">
+    <button type="submit">Search</button>
+</form>
+
+{% for book in books %}
+    <p>{{ book.title }} - {{ book.author }} - ₹{{ book.price }}</p>
+{% endfor %}

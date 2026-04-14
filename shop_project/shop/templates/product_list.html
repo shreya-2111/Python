@@ -1,0 +1,12 @@
+<h2>Product List</h2>
+
+<form method="GET" action="/filter/">
+    <input type="text" name="category" placeholder="Enter Category">
+    <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+{% for product in products %}
+    <p>{{ product.name }} - {{ product.category }} - ₹{{ product.price }}</p>
+{% endfor %}

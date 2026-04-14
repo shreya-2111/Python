@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div class="container">
+<h2>Feedback List</h2>
+<a href="/feedback/add/">Add Feedback</a>
+
+{% for f in data %}
+<div class="card">
+    <h3>{{ f.name }}</h3>
+    <p>{{ f.email }}</p>
+    <p>{{ f.message }}</p>
+
+    <a href="/feedback/update/{{ f.id }}" class="edit-btn">Edit</a>
+    <a href="/feedback/delete/{{ f.id }}" class="delete-btn">Delete</a>
+</div>
+{% endfor %}
+</div>
+</body>
+</html>

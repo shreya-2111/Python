@@ -1,0 +1,11 @@
+<h2>Student List</h2>
+
+<a href="/students/add/">Add Student</a>
+
+{% for s in students %}
+    <p>
+        {{ s.name }} <br> {{ s.email }}
+        <a href="/students/update/{{ s.id }}">Edit</a>
+        <a href="/students/delete/{{ s.id }}">Delete</a>
+    </p>
+{% endfor %} 

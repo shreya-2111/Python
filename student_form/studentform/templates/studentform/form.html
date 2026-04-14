@@ -1,0 +1,7 @@
+<h2>Student Form</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}   <!-- AUTO FORM ⭐ -->
+    <button type="submit">Save</button>
+</form>

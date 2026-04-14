@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+            margin: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .filter-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        .job-title {
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        .company {
+            font-weight: bold;
+            color: #16a085;
+        }
+
+        .salary {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Job Portal System</h1>
+</header>
+
+<div class="container">
+
+    <div class="filter-box">
+        <form method="get"> 
+            <select name="category">
+                <option value="">All Categories</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    {% for job in jobs %}
+        <div class="job-card">
+            <div class="job-title">{{ job.title }}</div>
+            <div class="company">{{ job.company }}</div>
+            <div class="salary">Salary: ₹{{ job.salary }}</div>
+            <p>{{ job.description }}</p>
+        </div>
+    {% empty %}
+        <p>No jobs available.</p>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

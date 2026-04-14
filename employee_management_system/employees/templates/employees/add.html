@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: Arial; background: #eef2f3; }
+.box { width: 50%; margin: auto; background: white; padding: 20px; margin-top: 50px; }
+input { width: 100%; padding: 10px; margin: 10px 0; }
+button { background: green; color: white; padding: 10px; border: none; }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Add Employee</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="department" placeholder="Department">
+    <input type="number" name="salary" placeholder="Salary">
+
+    Active: <input type="checkbox" name="status" checked>
+
+    <button type="submit">Save</button>
+</form>
+
+</div>
+</body>
+</html>

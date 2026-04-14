@@ -1,0 +1,7 @@
+<h2>Student List</h2>
+
+{% for student in students %}
+    <p>{{ student.name }} - {{ student.email }} - {{ student.age }}</p>
+{% endfor %}
+
+<a href="/dashboard/">Back</a>

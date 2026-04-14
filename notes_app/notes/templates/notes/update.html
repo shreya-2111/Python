@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Note</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background: orange;
+            color: white;
+            padding: 10px;
+            border: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Update Note</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ note.title }}">
+        <textarea name="content">{{ note.content }}</textarea>
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+</body>
+</html>

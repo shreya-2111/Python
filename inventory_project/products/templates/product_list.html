@@ -1,0 +1,21 @@
+<h1>Product List</h1>
+
+<form method="get">
+    <select name="category">
+        <option value="">All</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+{% for product in products %}
+    <h3>{{ product.name }}</h3>
+    <p>Price: {{ product.price }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Description: {{ product.description }}</p>
+    <hr>
+{% endfor %}

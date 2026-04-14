@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: Arial; background: #eef2f3; }
+.box { width: 50%; margin: auto; background: white; padding: 20px; margin-top: 50px; }
+input { width: 100%; padding: 10px; margin: 10px 0; }
+button { background: orange; color: white; padding: 10px; border: none; }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Update Employee</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" value="{{ emp.name }}">
+    <input type="text" name="department" value="{{ emp.department }}">
+    <input type="number" name="salary" value="{{ emp.salary }}">
+
+    Active: <input type="checkbox" name="status"
+    {% if emp.status %} checked {% endif %}>
+
+    <button type="submit">Update</button>
+</form>
+
+</div>
+</body>
+</html>

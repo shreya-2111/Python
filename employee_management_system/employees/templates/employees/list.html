@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+
+    <style>
+        body { font-family: Arial; background: #eef2f3; }
+
+        .container { width: 80%; margin: auto; }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .active { color: green; font-weight: bold; }
+        .inactive { color: red; font-weight: bold; }
+
+        a {
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .add-btn { background: green; color: white; }
+        .edit-btn { background: orange; color: white; }
+        .delete-btn { background: red; color: white; }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Employee List</h2>
+    <a href="/employees/add/" class="add-btn">Add Employee</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for emp in employees %}
+        <tr>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.salary }}</td>
+            <td>
+                {% if emp.status %}
+                    <span class="active">Active</span>
+                {% else %}
+                    <span class="inactive">Inactive</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="/employees/update/{{ emp.id }}" class="edit-btn">Edit</a>
+                <a href="/employees/delete/{{ emp.id }}" class="delete-btn">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

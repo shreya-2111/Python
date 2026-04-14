@@ -1,0 +1,12 @@
+<h2>Movie List</h2>
+
+<form method="GET" action="/filter/">
+    <input type="text" name="genre" placeholder="Enter Genre">
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{% for movie in movies %}
+    <p>{{ movie.name }} - {{ movie.genre }} - Rating: {{ movie.rating }}</p>
+{% endfor %}

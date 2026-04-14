@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f3;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        a {
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .add-btn { background: green; color: white; }
+        .edit-btn { background: orange; color: white; }
+        .delete-btn { background: red; color: white; }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Contact List</h2>
+    <a href="/contacts/add/" class="add-btn">Add Contact</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.address }}</td>
+            <td>
+                <a href="/contacts/update/{{ contact.id }}" class="edit-btn">Edit</a>
+                <a href="/contacts/delete/{{ contact.id }}" class="delete-btn">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

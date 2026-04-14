@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        a, button {
+            padding: 6px 12px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .add-btn {
+            background-color: green;
+            color: white;
+        }
+
+        .edit-btn {
+            background-color: orange;
+            color: white;
+            }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>My Notes</h2>
+    <a href="/notes/add/" class="add-btn">Add Note</a>
+
+    {% for note in notes %}
+    <div class="card">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content }}</p>
+        <small>{{ note.created_at }}</small><br>
+
+        <a href="/notes/update/{{ note.id }}" class="edit-btn">Edit</a>
+        <a href="/notes/delete/{{ note.id }}" class="delete-btn">Delete</a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

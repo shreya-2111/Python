@@ -1,0 +1,15 @@
+<h1>All Events</h1>
+
+<a href="/add-event/">Add New Event</a>
+
+<ul>
+    {% for event in events %}
+        <li>
+            <strong>{{ event.title }}</strong><br>
+            Date: {{ event.date }}<br>
+            Location: {{ event.location }}<br>
+            Description: {{ event.description }}
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
