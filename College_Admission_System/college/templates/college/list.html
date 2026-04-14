@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+    padding:20px;
+}
+h2{text-align:center;}
+.add-btn{
+    background:green;
+    color:white;
+    padding:10px;
+    text-decoration:none;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+th{
+    background:#007bff;
+    color:white;
+    padding:10px;
+}
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+.edit-btn{
+    background:orange;
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+}
+.delete-btn{
+    background:red;
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<h2>College Admission System</h2>
+
+<a href="/college/add/" class="add-btn">Add Student</a>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Course</th>
+    <th>Action</th>
+</tr>
+
+{% for student in students %}
+<tr>
+    <td>{{ student.id }}</td>
+    <td>{{ student.student_name }}</td>
+    <td>{{ student.email }}</td>
+    <td>{{ student.mobile }}</td>
+    <td>{{ student.course }}</td>
+    <td>
+        <a href="/college/update/{{ student.id }}/" class="edit-btn">Edit</a>
+        <a href="/college/delete/{{ student.id }}/" class="delete-btn">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
