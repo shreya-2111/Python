@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+    padding:20px;
+}
+h2{text-align:center;}
+.add-btn,.dep-btn,.with-btn,.edit-btn,.delete-btn{
+    color:white;
+    padding:5px 10px;
+    text-decoration:none;
+}
+.add-btn{background:green;}
+.dep-btn{background:blue;}
+.with-btn{background:purple;}
+.edit-btn{background:orange;}
+.delete-btn{background:red;}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+th{
+    background:#007bff;
+    color:white;
+    padding:10px;
+}
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Banking System</h2>
+
+<a href="/bank/add/" class="add-btn">Add Account</a>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Account No</th>
+    <th>Balance</th>
+    <th>Action</th>
+</tr>
+
+{% for account in accounts %}
+<tr>
+    <td>{{ account.id }}</td>
+    <td>{{ account.name }}</td>
+    <td>{{ account.account_number }}</td>
+    <td>{{ account.balance }}</td>
+    <td>
+        <a href="/bank/deposit/{{ account.id }}/" class="dep-btn">Deposit</a>
+        <a href="/bank/withdraw/{{ account.id }}/" class="with-btn">Withdraw</a>
+        <a href="/bank/update/{{ account.id }}/" class="edit-btn">Edit</a>
+        <a href="/bank/delete/{{ account.id }}/" class="delete-btn">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
